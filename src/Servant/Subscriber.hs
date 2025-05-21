@@ -1,3 +1,5 @@
+{-# LANGUAGE CPP #-}
+
 module Servant.Subscriber (
     notify,
     makeSubscriber,
@@ -52,7 +54,13 @@ serveSubscriber subscriber server req sendResponse = do
     let runLog = runLogging subscriber
     let handleWSConnection pending = do
             connection <- acceptRequest pending
+#if MIN_VERSION_websockets(0,12,6)
+            withPingThread connection 28 (pure ()) $
+                runLog . Client.run app <=< atomically . Client.fromWebSocket subscriber myRef $
+                    connection
+#else
             forkPingThread connection 28
+#endif
             runLog . Client.run app <=< atomically . Client.fromWebSocket subscriber myRef $ connection
     if Path (pathInfo req) == entryPoint subscriber
         then websocketsOr opts handleWSConnection app req sendResponse
