@@ -5,7 +5,11 @@ module Servant.Subscriber.Response where
 import qualified Blaze.ByteString.Builder as B
 import qualified Blaze.ByteString.Builder.Char8 as B
 import Data.Aeson
-import Data.Aeson.Parser (value)
+#if MIN_VERSION_aeson(2,2,0)
+import "attoparsec-aeson" Data.Aeson.Parser (value)
+#else
+import "aeson" Data.Aeson.Parser (value)
+#endif
 import Data.Aeson.Types (unsafeToEncoding)
 import Data.Attoparsec.ByteString (parseOnly)
 import Data.Bifunctor
