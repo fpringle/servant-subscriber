@@ -7,6 +7,7 @@ module Servant.Subscriber.Subscribable (
 ) where
 
 import Control.Lens
+import Data.Kind (Type)
 import Data.Proxy
 import GHC.Exts (Constraint)
 import GHC.TypeLits
@@ -57,7 +58,7 @@ type family IsValidEndpoint endpoint :: Constraint where
     IsValidEndpoint ((sym :: Symbol) :> sub) = IsValidEndpoint sub
     IsValidEndpoint (Capture z y :> sub) = IsValidEndpoint sub
     IsValidEndpoint (Subscribable :> sub) = IsValidEndpoint sub
-    IsValidEndpoint (Verb (method :: k1) (statusCode :: Nat) (contentTypes :: [*]) (a :: *)) = ()
+    IsValidEndpoint (Verb (method :: k1) (statusCode :: Nat) (contentTypes :: [Type]) (a :: Type)) = ()
 
 instance (HasServer sublayout context) => HasServer (Subscribable :> sublayout) context where
     type ServerT (Subscribable :> sublayout) m = ServerT sublayout m
