@@ -18,3 +18,4 @@ cabal.project.local
 cabal.sandbox.config
 dist
 dist-*
+.pre-commit-config.yaml
