@@ -1,11 +1,3 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE ExistentialQuantification #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE PolyKinds #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE TypeOperators #-}
-
 module Servant.Subscriber (
     notify,
     makeSubscriber,

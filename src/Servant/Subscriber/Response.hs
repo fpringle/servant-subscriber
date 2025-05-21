@@ -1,5 +1,4 @@
 {-# LANGUAGE CPP #-}
-{-# LANGUAGE DeriveGeneric #-}
 
 module Servant.Subscriber.Response where
 

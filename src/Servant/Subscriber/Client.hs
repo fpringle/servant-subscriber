@@ -1,7 +1,4 @@
 {-# LANGUAGE CPP #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
 
 module Servant.Subscriber.Client where
 

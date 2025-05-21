@@ -1,7 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeSynonymInstances #-}
-
 -- | Backend of accessing a wai server:
 module Servant.Subscriber.Backend.Wai where
 

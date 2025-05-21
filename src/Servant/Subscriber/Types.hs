@@ -1,8 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-
 module Servant.Subscriber.Types where
 
 import Control.Concurrent.STM

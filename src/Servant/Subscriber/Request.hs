@@ -1,6 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-
 module Servant.Subscriber.Request where
 
 import Data.Aeson
